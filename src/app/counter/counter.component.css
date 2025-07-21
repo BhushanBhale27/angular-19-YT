@@ -1,0 +1,39 @@
+.btn{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 20px;
+    border: 1px solid black;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.bg-green{
+    background-color: green;
+}
+
+.bg-black{
+    background-color: black;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.counter-btn-div{
+    text-align: center;
+}
+
+.counter{
+    width: 100px;
+    background-color: gray;
+    margin: auto;
+    padding: 13px;
+    font-size: 30px;
+    border-radius: 14px;
+}
+
+.btn:hover{
+    border: 1px solid white;
+}
