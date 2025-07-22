@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -7,29 +7,28 @@ import { Component } from '@angular/core';
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
-  count = 0;
-  // handleIncrement(){
-  //   this.count = this.count + 1; 
-  // }
+  count : WritableSignal <number> = signal<number>(0);
+  data = computed(()=>200);
 
-  // handleReset(){
-  //   this.count = 0;
-  // }
-
-  // handleDecrement(){
-  //   this.count = this.count - 1;
-  // }
+  x = signal(10);
+  y = signal(20);
+  z = computed(() => this.x() + this.y()); // when x or y changes z will recalculate again. 
 
   handleCounter(val:string){
     if(val=="plus"){
-      this.count = this.count + 1;
+      this.count.set(this.count() +1 );
     } else if(val=="minus"){
-      if(this.count > 0){
-        this.count = this.count - 1;
+      if(this.count() > 0){
+        this.count.set(this.count() -1 );
       }
     } else{
-      this.count = 0;
+      this.count.set(0);
     }
   }
- 
+
+  updateZ(){
+    console.log(this.z());
+    this.x.set(100);
+    console.log(this.z());
+  }
 }

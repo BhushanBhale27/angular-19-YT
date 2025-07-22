@@ -1,15 +1,17 @@
 <div>
   <div class="counter-btn-div">
     <h2>Counter Application</h2>
-    <h3 class="counter">{{ count }}</h3>
-    <button (click)="handleCounter('plus')" class="btn bg-green">
+    <h3 class="counter">{{ count() }}</h3>
+    <button (click)="count.set(count() + 1)" class="btn bg-green">
       Increment
     </button>
-    @if(count){
-    <button (click)="handleCounter('reset')" class="btn bg-black">Reset</button>
-    <button (click)="handleCounter('minus')" class="btn bg-red">
+    @if(count()){
+    <button (click)="count.set(0)" class="btn bg-black">Reset</button>
+    <button (click)="count.set(count() - 1)" class="btn bg-red">
       Decrement
     </button>
     }
   </div>
+  <h4>{{ z() }}</h4>
+  <button (click)="updateZ()">updateZ</button>
 </div>
