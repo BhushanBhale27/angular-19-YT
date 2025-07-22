@@ -5,4 +5,30 @@
 
 <!-- <app-login></app-login>
 <app-logout></app-logout> -->
-<app-counter></app-counter>
+<!-- <app-counter></app-counter> -->
+
+<!-- @for(user of users; track user){
+<h2>{{ user }}</h2>
+} -->
+<hr />
+
+@for(user of users; track user; let id=$index){
+<h2>
+  <span> {{ id + 1 }}</span>
+  <span> {{ user.name }}</span>
+  <span> {{ user.age }}</span>
+  <span> {{ user.color }}</span>
+  <button (click)="getNameOfObj(user.name)">get name</button>
+</h2>
+}
+<h4>{{ info }}</h4>
+
+<h2>Enterd Name: {{ name }}</h2>
+<input (input)="getName($event)" placeholder="name" />
+<br />
+
+<label>Email:- </label>
+<h3>{{ email }}</h3>
+<input type="email" #emailField />
+<button (click)="getEmail(emailField.value)">Get Email</button>
+<button (click)="setEmail()">Set Email</button>
